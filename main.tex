@@ -214,7 +214,6 @@ Tiếp theo ta đi chứng minh mọi tập con của $X$ đều là tập bị 
 
 \begin{proof}
 Nhận xét: các quả cầu mở tâm $a$ bán kính $r$ trên $\R$ là các khoảng mở $(a-r,a+r)$. Thật vậy, ta có $B(a,r) = \{x\in\R : \abs{a-x} < r \} = \{x\in\R : -r < a-x < r \} = \{x\in\R : a-r < x < a+r\} = (a-r,a+r)$.\\[3mm]
-
 Trước tiên ta đi khảo sát tính đóng / mở của $(0,1]$ trên $(X,d)$. Xét quả cầu $B(1,r)$ với bán kính $r > 0$ bất kì, ta có $1+\frac{r}{2} \in (1-r,1+r) = B(1,r)$, mà $1 + \frac{r}{2} \notin (0,1]$, do đó $B(1,r) \not\subset (0,1]$. Suy ra $(0,1]$ không là tập mở.\nll
 Tương tự xét $B(0,r)$ với $r > 0$ bất kì, ta có $\min\{\frac{r}{2}, 0.5\} \in (-r,r) = B(0,r)$, mà $\min\{\frac{r}{2}, 0.5\} \notin (-\infty,0] \cup (1,\infty) = \R \setminus (0,1]$, do đó $B(0,r) \not\subset \R \setminus (0,1]$. Suy ra $\R \setminus (0,1]$ không là tập mở, hay $(0,1]$ không là tập đóng.\nll
 Vậy $(0,1]$ vừa không mở vừa không đóng trên $(X,d)$.\QEDFill\\[3mm]
@@ -265,6 +264,71 @@ Từ các tính chất trên ta kết luận $(X,\delta)$ là một không gian 
 
 \begin{proof}
 Ta có $G \cap A = \varnothing \Rightarrow A \subset (X \setminus G)$, mà $\overline{A}$ là tập đóng nhỏ nhất chứa $A$ và $X \setminus G$ cũng là tập đóng do $G$ là tập mở, nên $\overline{A} \subset (X \setminus G)$. Vậy $G \cap \overline{A} = \varnothing$.
+\end{proof}
+
+\begin{exercise}{22}
+    Trong $\R^2$, cho
+    $$
+        d(x,y) = \max\{\abs{x_1-y_1}, \abs{x_2-y_2}\}
+    $$
+    với mọi $x = (x_1,x_2), y = (y_1,y_2) \in \R^2$.\\[3mm]
+    $a)$ Chứng minh rằng $(\R^2,d)$ là không gian metric đầy đủ.\\
+    $b)$ Cho $D = \{(x,y) \in \R^2: x^2 + y^2 \leq 2y\}.$ Chứng minh $D$ là tập compact trong $(\R^2,d)$.
+\end{exercise}
+
+\begin{proof}
+    $a)$ Cho dãy $(a_{n})$ là một dãy Cauchy bất kì trong $(\R^2,d)$, $a_{n} = (x_n, y_n)$.\\
+    Ta có với mọi $\epsilon > 0$, ta tìm được $n_0 \in \N$ sao cho với mọi $n,m \geq n_0$ thì
+    $$
+        \max\{\abs{x_m - x_n}, \abs{y_m - y_n}\} < \epsilon
+    $$
+    Từ đó suy ra
+    $$
+        \begin{cases}
+            \abs{x_m - x_n} < \epsilon\\
+            \abs{y_m - y_n} < \epsilon
+        \end{cases}
+    $$
+    Do đó ta được $(x_n)$ và $(y_n)$ là 2 dãy Cauchy trên $\R$ với metric thông thường. Mà $\R$ với metric thông thường là một không gian đầy đủ, nên suy ra $(x_n)$ và $(y_n)$ cũng hội tụ trên metric thông thường.\\
+    $\Rightarrow \exists x_1, x_2 \in \R:$
+    $\begin{cases}
+        \dlim_{n\to\infty} \abs{x_1 - x_n} = 0\\
+        \dlim_{n\to\infty} \abs{x_2 - y_n} = 0
+    \end{cases}$\nl
+    $\Rightarrow \dlim_{n\to\infty} \max\{ \abs{x_1 - x_n}, \abs{x_2 - y_n} \} = 0$.\nl
+    $\Rightarrow d(x,a_n) = 0$ với $x = (x_1, x_2)$.\\
+    $\Rightarrow (a_n)$ hội tụ.\\
+    Vậy ta kết luận $(\R^2, d)$ là một không gian metric đầy đủ.\\[3mm]
+    $b)$ Trước tiên ta đi chứng minh $D$ là tập đóng.\\
+    Cho $z=(x,y)$ là một điểm dính bất kỳ của $D$, khi đó tồn tại $z_n=(x_n,y_n)$ trong $D$ sao cho
+    \begin{align*}
+        &\ \lim_{n\to\infty} d(z_n,z) = 0\\
+        \Rightarrow&\ \lim_{n\to\infty} \max\{\abs{x_n - x},\abs{y_n - y}\} = 0
+    \end{align*}
+    Nếu $\max\{\abs{x_n - x}, \abs{y_n - y}\} = \abs{x_n - x} = 0$ thì
+    \begin{align*}
+        &\ \lim_{n\to\infty} \max\{\abs{x_n - x}, \abs{y_n - y}\} = \lim_{n\to\infty} \abs{x_n - x} = 0\\
+        \Rightarrow&\ \lim_{n\to\infty} x_n = x\\
+        \Rightarrow&\ \lim_{n\to\infty} x_n^2 = x^2 \tag{1}
+    \end{align*}
+    Nếu $max\{\abs{x_n - x},\abs{y_n - y}\} = \abs{y_n - y} = 0$ thì
+    \begin{align*}    
+        &\ \lim_{n\to\infty}max\{\abs{x_n - x},\abs{y_n - y}\} =\lim_{n\to\infty} \abs{y_n - y} = 0\\
+        \Rightarrow&\ \lim_{n\to\infty} y_n = y\\
+        \Rightarrow&\ \lim_{n\to\infty} (y_n-1)^2 = (y-1)^2 \tag{2}
+    \end{align*}
+    Từ $(1)$ và $(2)$ suy ra $\dlim_{n\to\infty} \left(x_n^2 + (y_n-1)^2\right) = x^2 +(y-1)^2$\nl
+    Ngoài ra $z_n$ trong $D$ nên $x_n^2 + (y_n-1)^2 \leq 1$, hay $x^2 +(y-1)^2 \leq 1$\nl
+    $\Rightarrow z \in D$.\\
+    Suy ra $D$ là tập đóng.\\[3mm]
+    Tiếp theo ta chứng minh $D$ bị chặn, tức là ta cần tìm $r > 0$ sao cho $D$ chứa trong $B(a,r)$, hay nói cách khác là ta cần tìm $r>0$ sao cho nếu $x^2 + (y-1)^2 \leq 1$ thì $(x-1)^2 + (y-1)^2 \leq r$. Trước hết ta có
+    \begin{center}
+        $x^2 + y^2 \leq 2y \Rightarrow y \geq 0$\\
+        $(x-1)^2 \leq 2(x^2+1)$
+    \end{center}
+    $\Rightarrow (x-1)^2 + (y-1)^2 \leq 2(x^2+1) + (y-1)^2 \leq 2x^2 + 2(y-1)^2 +2 \leq 4$\\
+    Do vậy ta chọn $r=4$, suy ra $D$ là tập bị chặn trong $B(1,4)$.\\
+    Vậy $D$ là một tập compact trong $(\R^2,d)$.
 \end{proof}
 
 \begin{exercise}{23} Trong $\R^2$ cho tập
