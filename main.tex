@@ -213,12 +213,12 @@ Tiếp theo ta đi chứng minh mọi tập con của $X$ đều là tập bị 
 \end{exercise}
 
 \begin{proof}
-    Cho $(x_n)$ là một dãy Cauchy trong không gian metric bất kì $(X,d)$. Giả sử tồn tại dãy con $(x_{n_k})$ của $(x_n)$ sao cho $x_{n_k} \rightarrow x$. Lúc này với mọi $\epsilon > 0$, ta tìm được $N_1, N_2 \in \N$ sao cho
+    Cho $(x_n)$ là một dãy Cauchy trong không gian metric $(X,d)$ bất kì. Giả sử tồn tại dãy con $(x_{n_k})$ của $(x_n)$ sao cho $x_{n_k} \rightarrow x$. Lúc này với mọi $\epsilon > 0$, ta tìm được $N_1, N_2 \in \N$ sao cho
     $$\begin{cases}
         d(x_{n_k},x) < \epsilon,\ \forall n_k > N_1\\
         d(x_n, x_m) < \epsilon,\ \forall n,m > N_2
     \end{cases}$$
-    Chọn $N = \max\{n_k, n\} + 1$, ta có $N > N_1$ và $N > N_2$ nên
+    Chọn $N = \max\{n_k, n, m\} + 1$, ta có $N > N_1$ và $N > N_2$ nên
     $$
         d(x_n,x) \leq d(x_n, x_N) + d(x_N,x) < 2 \epsilon,
     $$
