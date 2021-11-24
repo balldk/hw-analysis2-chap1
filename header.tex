@@ -31,7 +31,7 @@
 \changefontsizes{12pt}
 \setlength{\topmargin}{-0.8in}
 \setlength{\textheight}{9.25in}
-\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\baselinestretch}{1.3}
 \titlespacing{\section}{0pt}{12pt}{2pt}
 \DeclareTextFontCommand{\textbfit}{\bfseries\itshape}
 \setlength{\parindent}{0pt}
@@ -76,6 +76,8 @@
 }
 \newenvironment{proof}{\startproof
 }{\QEDFill\\}
+% Change largesymbols to other font
+\DeclareSymbolFont{largesymbols}  {OMX}{matha}{m}{n}
 
 % ============ Meta data ============
 \title{\textbf{Bài tập giải tích 2 - Chương 1}}
