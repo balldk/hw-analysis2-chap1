@@ -218,7 +218,7 @@ Tiếp theo ta đi chứng minh mọi tập con của $X$ đều là tập bị 
         d(x_{n_k},x) < \epsilon,\ \forall n_k > N_1\\
         d(x_n, x_m) < \epsilon,\ \forall n,m > N_2
     \end{cases}$$
-    Chọn $N = \max\{n_k, n, m\} + 1$, ta có $N > N_1$ và $N > N_2$ nên
+    Chọn $N = \max\{N_1, N_2\} + 1$, ta có $N > N_1$ và $N > N_2$ nên
     $$
         d(x_n,x) \leq d(x_n, x_N) + d(x_N,x) < 2 \epsilon,
     $$
@@ -390,6 +390,23 @@ Xét $\|\mathbf{.}\|_{\infty}$, ta có với mọi $\mathbf{x}, \mathbf{y} \in X
     \end{alignat*}
 \end{itemize}
 Vậy từ các tính chất trên ta suy ra $\|\mathbf{.}\|_{\infty}$ là một chuẩn trên $X$.
+\end{proof}
+
+\begin{exercise}{13}
+    Cho $(X,d)$ là một không gian metric và cho dãy $(x_n) \subset X$. Chứng minh rằng giới hạn của dãy $(x_n)$ nếu có thì là duy nhất.
+\end{exercise}
+
+\begin{proof}
+    Giả sử tồn tại $x, y \in X$ sao cho $\dlim_{n\to\infty} d(x_n,x) = 0$ và $\dlim_{n\to\infty} d(x_n,y) = 0$. Khi đó với mọi $\epsilon > 0$, ta tìm được $n_1, n_2 \in \N$ sao cho
+    $$\begin{cases}
+        d(x_n,x) < \epsilon,\ \forall n \geq n_1\\
+        d(x_m,y) < \epsilon,\ \forall m \geq n_2
+    \end{cases}$$
+    Chọn $N = \max\{n_1, n_2\}+1$, khi đó $N > n_1$ và $N > n_2$, vậy nên
+    $$
+        d(x,y) \leq d(x,x_N) + d(x_N, y) \leq 2 \epsilon
+    $$
+    Tóm lại $d(x,y) = 0$ hay $x = y$.
 \end{proof}
 
 \begin{exercise}{14}
