@@ -208,6 +208,23 @@ Từ các tính chất trên ta kết luận $\delta$ là một metric trên $X$
 Tiếp theo ta đi chứng minh mọi tập con của $X$ đều là tập bị chặn trong không gian metric $(X,\delta)$. Thật vậy, cho $E \subset X$, ta chọn phần tử $x \in X$ bất kì và xét quả cầu mở $B_{\delta}(x,2)$. Ta có với mọi $y \in E$ thì $\delta(x,y) = \min\{1, d(x,y)\} \leq 1 < 2$, suy ra $y \in B_{\delta}(x,2)$, do đó $E \subset B_{\delta}(x,2)$. Vậy mọi tập con $E \subset X$ đều bị chặn trong $(X,\delta)$.
 \end{proof}
 
+\begin{exercise}{8}
+    Chứng minh rằng trong một không gian metric bất kì, dãy Cauchy có một dãy con hội tụ cũng là dãy hội tụ.
+\end{exercise}
+
+\begin{proof}
+    Cho $(x_n)$ là một dãy Cauchy trong không gian metric bất kì $(X,d)$. Giả sử tồn tại dãy con $(x_{n_k})$ của $(x_n)$ sao cho $x_{n_k} \rightarrow x$. Lúc này với mọi $\epsilon > 0$, ta tìm được $N_1, N_2 \in \N$ sao cho
+    $$\begin{cases}
+        d(x_{n_k},x) < \epsilon,\ \forall n_k > N_1\\
+        d(x_n, x_m) < \epsilon,\ \forall n,m > N_2
+    \end{cases}$$
+    Chọn $N = \max\{n_k, n\} + 1$, ta có $N > N_1$ và $N > N_2$ nên
+    $$
+        d(x_n,x) \leq d(x_n, x_N) + d(x_N,x) < 2 \epsilon,
+    $$
+    Tóm lại, $x_n$ hội tụ về $x$ trong $(X,d)$.
+\end{proof}
+
 \begin{exercise}{9}
     Với không gian metric $(X_1,d_1), (X_2,d_2), \cdots, (X_N,d_N)$, Xét tập tích
     $$
@@ -296,6 +313,24 @@ Xét $d_{\infty}$, ta có với mọi $\mathbf{x}, \mathbf{y}, \mathbf{z} \in X$
 \end{itemize}
 Vậy từ các tính chất trên ta kết luận $d_{\infty}$ là một metric trên $X$.
 \end{proof}
+
+\begin{exercise}{10}
+    Với các không gian định chuẩn $(X_1, \|.\|_1), (X_2, \|.\|_2), \cdots, (X_N, \|.\|_N)$, xét tập tích
+    $$
+        X = X_1 \times X_2 \times \cdots \times X_N = \{ (x_1,x_2,\cdots,x_N): x_i \in X_i, i = 1,2,\cdots,N \}
+    $$
+    Chứng minh rằng các ánh xạ
+    \begin{align*}
+        &\|\mathbf{x}\|_2 = \sqrt{\|x_1\|_1^2 + \cdots + \|x_N\|_N^2},\\
+        &\|\mathbf{x}\|_1 = \|x_1\|_1 + \cdots + \|x_N\|_N,\\
+        &\|\mathbf{x}\|_{\infty} = \max\{\|x_1\|_1, \cdots, \|x_N\|_N\},
+    \end{align*}
+    với $\mathbf{x} = (x_1,x_2,\cdots,x_N) \in X$, là các chuẩn trên $X$,
+    $$
+        \|\mathbf{x}\|_{\infty} \leq \|\mathbf{x}\|_{2} \leq \|\mathbf{x}\|_{1} \leq N \|\mathbf{x}\|_{\infty}, \text{ với mọi } \mathbf{x} \in X.
+    $$
+    Suy ra rằng $\|.\|_1, \|.\|_2$ và $\|.\|_{\infty}$ sinh ra cùng một topo trên $X$.
+\end{exercise}
 
 \begin{exercise}{14}
     Xét không gian metric $(X,d)$, với $X=\R$ và $d(x,y)=\abs{x-y}$, $\forall x,y \in \R$, và $Y = (0,2]$. Khảo sát tính đóng / mở của $A=(0,1]$ trong không gian metric $(X,d)$ và trong không gian con $(Y,d_Y)$ của $(X,d)$. Khảo sát sự hội tụ của dãy $\left(\frac{1}{n}\right)_{n\in\N}$ trong $X$ và trong $Y$.
