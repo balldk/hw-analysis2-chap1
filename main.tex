@@ -208,6 +208,95 @@ Từ các tính chất trên ta kết luận $\delta$ là một metric trên $X$
 Tiếp theo ta đi chứng minh mọi tập con của $X$ đều là tập bị chặn trong không gian metric $(X,\delta)$. Thật vậy, cho $E \subset X$, ta chọn phần tử $x \in X$ bất kì và xét quả cầu mở $B_{\delta}(x,2)$. Ta có với mọi $y \in E$ thì $\delta(x,y) = \min\{1, d(x,y)\} \leq 1 < 2$, suy ra $y \in B_{\delta}(x,2)$, do đó $E \subset B_{\delta}(x,2)$. Vậy mọi tập con $E \subset X$ đều bị chặn trong $(X,\delta)$.
 \end{proof}
 
+\begin{exercise}{9}
+    Với không gian metric $(X_1,d_1), (X_2,d_2), \cdots, (X_N,d_N)$, Xét tập tích
+    $$
+        X = X_1 \times X_2 \times \cdots X_N = \{(x_1,x_2,\cdots,x_N): x_i \in X_i, i = 1,2,\cdots,N\}
+    $$
+    Chứng minh các ánh xạ
+    \begin{align*}
+        &d_2(\mathbf{x}, \mathbf{y}) = \sqrt{d_1^2(x_1,y_1) + \cdots + d_N^2(x_N,y_N)},\\
+        &d_1(\mathbf{x}, \mathbf{y}) = d_1(x_1,y_1) + \cdots + d_N(x_N,y_N),\\
+        &d_{\infty}(\mathbf{x}, \mathbf{y}) = \max\{d_1(x_1,y_1), \cdots, d_N(x_N,y_N)\}
+    \end{align*}
+    với $\mathbf{x} = (x_1,x_2,\cdots,x_N), \mathbf{y} = (y_1,y_2,\cdots,y_N) \in X$, là các metric trên $X$,
+    $$
+        d_{\infty}(\mathbf{x}, \mathbf{y}) \leq d_{2}(\mathbf{x}, \mathbf{y}) \leq d_{1}(\mathbf{x}, \mathbf{y}) \leq N d_{\infty}(\mathbf{x}, \mathbf{y}), \text{ với mọi } \mathbf{x}, \mathbf{y} \in X.
+    $$
+    Suy ra rằng $d_1,d_2$ và $d_{\infty}$ sinh ra cùng một topo trên $X$.
+\end{exercise}
+
+\begin{proof}
+Xét $d_2$, ta có với mọi $\mathbf{x}, \mathbf{y}, \mathbf{z} \in X$ thì
+\begin{itemize}
+    \item $d_2(\mathbf{x}, \mathbf{y}) = \sqrt{d_1^2(x_1,y_1) + \cdots + d_N^2(x_N,y_N)} \geq 0$ và
+    \begin{align*}
+        &\quad d_2(\mathbf{x}, \mathbf{y}) = 0\\
+        \Leftrightarrow&\quad \sqrt{d_1^2(x_1,y_1) + \cdots + d_N^2(x_N,y_N)} = 0\\
+        \Leftrightarrow&\quad d_1(x_1,y_1) = \cdots = d_N(x_N,y_N) = 0\\
+        \Leftrightarrow&\quad x_1 = y_1, \cdots, x_N = y_N\\
+        \Leftrightarrow&\quad \mathbf{x} = \mathbf{y}.
+    \end{align*}
+
+    \item $d_2(\mathbf{x}, \mathbf{y}) = \sqrt{d_1^2(x_1,y_1) + \cdots + d_N^2(x_N,y_N)} = \sqrt{d_1^2(y_1,x_1) + \cdots + d_N^2(y_N,x_N)} = d_2(\mathbf{y}, \mathbf{x})$.
+    
+    \item Đặt $a_i = d_i(x_i,y_i), b_i = d_i(x_i,z_i), c_i = d_i(z_i,y_i)$ với $i = 1,\cdots,N$. Khi đó ta có
+    \begin{alignat*}{3}
+        & & a_i &\leq b_i + c_i,\ \forall i = 1,\cdots,N\\
+        &\Rightarrow\quad & a_i^2 &\leq b_i^2 + c_i^2 + 2 b_i c_i,\ \forall i = 1,\cdots,N\\
+        &\Rightarrow\quad & \sum_{i=1}^N a_i^2 &\leq \sum_{i=1}^N b_i^2 + \sum_{i=1}^N c_i^2 + 2 \sum_{i=1}^N b_i c_i
+    \end{alignat*}
+    Áp dụng bất đẳng thức Bunhiacopxki ta được
+    \begin{alignat*}{3}
+        & & \sum_{i=1}^N a_i^2 &\leq \sum_{i=1}^N b_i^2 + \sum_{i=1}^N c_i^2 + 2 \left(\sum_{i=1}^N b_i^2\right)^{\frac{1}{2}} \left(\sum_{i=1}^N c_i^2\right)^{\frac{1}{2}}\\
+        &\Rightarrow\quad & \sum_{i=1}^N a_i^2 &\leq \left(\left(\sum_{i=1}^N b_i^2\right)^{\frac{1}{2}} + \left(\sum_{i=1}^N c_i^2\right)^{\frac{1}{2}}\right)^2\\
+        &\Rightarrow\quad & \left(\sum_{i=1}^N a_i^2\right)^{\frac{1}{2}} &\leq \left(\sum_{i=1}^N b_i^2\right)^{\frac{1}{2}} + \left(\sum_{i=1}^N c_i^2\right)^{\frac{1}{2}}\\
+        &\Rightarrow\quad & d_1(\mathbf{x},\mathbf{y}) &\leq d_1(\mathbf{x},\mathbf{z}) + d_1(\mathbf{z},\mathbf{y})
+    \end{alignat*}
+\end{itemize}
+Vậy từ các tính chất trên ta kết luận $d_2$ là một metric trên $X$.\QEDFill\\[3mm]
+Xét $d_1$, ta có với mọi $\mathbf{x}, \mathbf{y}, \mathbf{z} \in X$ thì
+\begin{itemize}
+    \item $d_1(\mathbf{x}, \mathbf{y}) = d_1(x_1,y_1) + \cdots + d_N(x_N,y_N) \geq 0$ và
+    \begin{align*}
+        &\quad d_1(\mathbf{x}, \mathbf{y}) = 0\\
+        \Leftrightarrow&\quad d_1(x_1,y_1) + \cdots + d_N(x_N,y_N) = 0\\
+        \Leftrightarrow&\quad d_1(x_1,y_1) = \cdots = d_N(x_N,y_N) = 0\\
+        \Leftrightarrow&\quad x_1 = y_1, \cdots, x_N = y_N\\
+        \Leftrightarrow&\quad \mathbf{x} = \mathbf{y}.
+    \end{align*}
+    \item $d_1(\mathbf{x}, \mathbf{y}) = d_1(x_1,y_1) + \cdots + d_N(x_N,y_N) = d_1(y_1,x_1) + \cdots + d_N(y_N,x_N) = d_1(\mathbf{y}, \mathbf{x})$.
+    \item Ta có $d_i(x_i,y_i) \leq d_i(x_i,z_i) + d_i(z_i,y_i)$ với mọi $i = 1,\cdots,N$ nên
+    $$
+        \sum_{i=1}^N d_i(x_i,y_i) \leq \sum_{i=1}^N d_i(x_i,z_i) + \sum_{i=1}^N d_i(z_i,y_i)
+    $$
+    $\Rightarrow d_1(\mathbf{x}, \mathbf{y}) \leq d_1(\mathbf{x}, \mathbf{z}) + d_1(\mathbf{z}, \mathbf{y})$
+\end{itemize}
+Vậy từ các tính chất trên ta kết luận $d_1$ là một metric trên $X$.\QEDFill\\[3mm]
+Xét $d_{\infty}$, ta có với mọi $\mathbf{x}, \mathbf{y}, \mathbf{z} \in X$ thì
+\begin{itemize}
+    \item $d_{\infty}(\mathbf{x}, \mathbf{y}) = \max\{d_1(x_1,y_1), \cdots, d_N(x_N,y_N)\} \geq 0$ và
+    \begin{align*}
+        &\quad d_{\infty}(\mathbf{x}, \mathbf{y}) = 0\\
+        \Leftrightarrow&\quad \max\{d_1(x_1,y_1), \cdots, d_N(x_N,y_N)\} = 0\\
+        \Leftrightarrow&\quad d_1(x_1,y_1) = \cdots = d_N(x_N,y_N) = 0\\
+        \Leftrightarrow&\quad x_1 = y_1, \cdots, x_N = y_N\\
+        \Leftrightarrow&\quad \mathbf{x} = \mathbf{y}.
+    \end{align*}
+    \item $d_{\infty}(\mathbf{x}, \mathbf{y}) = \max\{d_1(x_1,y_1), \cdots, d_N(x_N,y_N)\} = \max\{d_1(y_1,x_1), \cdots, d_N(y_N,x_N)\}$\\
+    $= d_{\infty}(\mathbf{y}, \mathbf{x})$.
+    \item Ta có $d_i(x_i,y_i) \leq d_i(x_i,z_i) + d_i(z_i,y_i)$ với mọi $i = 1,\cdots,N$ nên
+    \begin{align*}
+        &\quad d_{\infty}(\mathbf{x},\mathbf{y})\\
+        =&\quad \max\{d_1(x_1,y_1), \cdots, d_N(x_N,y_N)\}\\
+        \leq&\quad \max\{d_1(x_1,z_1) + d_1(z_1,y_1), \cdots, d_N(x_N,z_N) + d_i(z_N,y_N)\}\\
+        \leq&\quad \max\{d_1(x_1,z_1) + d_1(z_1,y_1)\} + \cdots + \max\{d_N(x_N,z_N) + d_i(z_N,y_N)\}\\
+        =&\quad d_{\infty}(\mathbf{x}, \mathbf{z}) + d_{\infty}(\mathbf{y}, \mathbf{z})
+    \end{align*}
+\end{itemize}
+Vậy từ các tính chất trên ta kết luận $d_{\infty}$ là một metric trên $X$.
+\end{proof}
+
 \begin{exercise}{14}
     Xét không gian metric $(X,d)$, với $X=\R$ và $d(x,y)=\abs{x-y}$, $\forall x,y \in \R$, và $Y = (0,2]$. Khảo sát tính đóng / mở của $A=(0,1]$ trong không gian metric $(X,d)$ và trong không gian con $(Y,d_Y)$ của $(X,d)$. Khảo sát sự hội tụ của dãy $\left(\frac{1}{n}\right)_{n\in\N}$ trong $X$ và trong $Y$.
 \end{exercise}
