@@ -332,6 +332,66 @@ Vậy từ các tính chất trên ta kết luận $d_{\infty}$ là một metric
     Suy ra rằng $\|.\|_1, \|.\|_2$ và $\|.\|_{\infty}$ sinh ra cùng một topo trên $X$.
 \end{exercise}
 
+\begin{proof}
+
+Xét $\|\mathbf{.}\|_2$, ta có với mọi $\mathbf{x}, \mathbf{y} \in X, \alpha \in \R$ thì
+\begin{itemize}
+    \item $\|\mathbf{x}\|_2 = \sqrt{\|x_1\|_1^2 + \cdots + \|x_N\|_N^2} \geq 0$ và
+    \begin{align*}
+        &\quad\sqrt{\|x_1\|_1^2 + \cdots + \|x_N\|_N^2} = 0\\
+        \Leftrightarrow&\quad \|x_1\|_1 = \cdots = \|x_N\|_N = 0\\
+        \Leftrightarrow&\quad x_1 = 0, \cdots, x_N = 0\\
+        \Leftrightarrow&\quad \mathbf{x} = 0
+    \end{align*}
+    \item $\|\mathbf{\alpha x}\|_2 = \sqrt{\|\alpha x_1\|_1^2+\cdots+\|\alpha x_N\|_N^2} = \abs{\alpha} \sqrt{\|x_1\|_1^2 + \cdots + \|x_N\|_N^2} = \abs{\alpha} \|\mathbf{x}\|_2$.
+    
+    \item Đặt $a_i = \|x_i+y_i\|_i, b_i = \|x_i\|_i, c_i = \|y_i\|_i$ với $i = 1,\cdots,N$. Khi đó ta có
+    \begin{alignat*}{3}
+        & & a_i &\leq b_i + c_i,\ \forall i = 1,\cdots,N\\
+        &\Rightarrow\quad & a_i^2 &\leq b_i^2 + c_i^2 + 2 b_i c_i,\ \forall i = 1,\cdots,N\\
+        &\Rightarrow\quad & \sum_{i=1}^N a_i^2 &\leq \sum_{i=1}^N b_i^2 + \sum_{i=1}^N c_i^2 + 2 \sum_{i=1}^N b_i c_i
+    \end{alignat*}
+    Áp dụng bất đẳng thức Bunhiacopxki ta được
+    \begin{alignat*}{3}
+        & & \sum_{i=1}^N a_i^2 &\leq \sum_{i=1}^N b_i^2 + \sum_{i=1}^N c_i^2 + 2 \left(\sum_{i=1}^N b_i^2\right)^{\frac{1}{2}} \left(\sum_{i=1}^N c_i^2\right)^{\frac{1}{2}}\\
+        &\Rightarrow\quad & \sum_{i=1}^N a_i^2 &\leq \left(\left(\sum_{i=1}^N b_i^2\right)^{\frac{1}{2}} + \left(\sum_{i=1}^N c_i^2\right)^{\frac{1}{2}}\right)^2\\
+        &\Rightarrow\quad & \left(\sum_{i=1}^N a_i^2\right)^{\frac{1}{2}} &\leq \left(\sum_{i=1}^N b_i^2\right)^{\frac{1}{2}} + \left(\sum_{i=1}^N c_i^2\right)^{\frac{1}{2}}\\
+        &\Rightarrow\quad & \|\mathbf{x} + \mathbf{y}\|_2 &\leq \|\mathbf{x}\|_2 + \|\mathbf{y}\|_2
+    \end{alignat*}
+\end{itemize}
+Vậy từ các tính chất trên ta suy ra $\|\mathbf{.}\|_2$ là một chuẩn trên $X$.\QEDFill\nll
+Xét $\|\mathbf{.}\|_1$, ta có với mọi $\mathbf{x}, \mathbf{y} \in X, \alpha \in \R$ thì
+\begin{itemize}
+    \item $\|\mathbf{x}\|_1 = \|x_1\|_1 + \cdots + \|x_N\|_N \geq 0$ và
+    \begin{align*}
+        &\quad \|x_1\|_1 + \cdots + \|x_N\|_N = 0\\
+        \Leftrightarrow&\quad \|x_1\|_1 = \cdots = \|x_N\|_N = 0\\
+        \Leftrightarrow&\quad \mathbf{x} = 0.
+    \end{align*}
+    \item $\|\mathbf{\alpha x}\|_1 = \|\alpha x_1\|_1 + \cdots + \|\alpha x_N\|_N = \abs{\alpha} (\|x_1\|_1 + \cdots + \|x_N\|_N) = \abs{\alpha} \|\mathbf{x}\|_1$.
+    \item $\|\mathbf{x}+\mathbf{y}\|_1 = \|x_1 + y_1\|_1 + \cdots + \|x_n + y_n\|_N \leq (\|x_1\|_1 + \cdots + \|x_n\|_N) + (\|y_1\|_1 + \cdots + \|y_n\|_N)\\
+    = \|\mathbf{x}\|_1+\|\mathbf{y}\|_1$.
+\end{itemize}
+Vậy từ các tính chất trên ta suy ra $\|\mathbf{.}\|_1$ là một chuẩn trên $X$.\QEDFill\nll
+Xét $\|\mathbf{.}\|_{\infty}$, ta có với mọi $\mathbf{x}, \mathbf{y} \in X, \alpha \in \R$ thì
+\begin{itemize}
+    \item $\|\mathbf{x}\|_{\infty} = \max\{\|x_1\|_1, \cdots, \|x_N\|_N\} \geq 0$
+    và vì $\|x_i\|_i$ luôn lớn hơn $0$ và có giá trị nhỏ nhất bằng $0$ nên
+    \begin{align*}
+        &\quad \max\{\|x_1\|_1, \cdots, \|x_N\|_N\} = 0\\
+        \Leftrightarrow&\quad \|x_1\|_1  = \cdots = \|x_N\|_N = 0\\
+        \Leftrightarrow&\quad \mathbf{x} = 0
+    \end{align*}
+    \item $\|\mathbf{\alpha x}\|_{\infty} = \max\{\|\alpha x_1\|_1, \cdots, \|\alpha x_N\|_N\} = \abs{\alpha}\max\{\|x_1\|_1, \cdots, \|x_N\|_N\} = \abs{\alpha} \|\mathbf{x}\|_{\infty}$.
+    \item Ta có $\abs{x_i + y_i} \leq \|x_i\|_i + \|y_i\|_i$ với mọi $i = 1\cdots N$ nên
+    \begin{alignat*}{3}
+        & & \max_{i = 1,\cdots,N} \|x_i + y_i\|_i &\leq \max_{i = 1,\cdots,N} (\|x_i\|_i + \|y_i\|_i) \leq \max_{i = 1,\cdots,N} \|x_i\|_i + \max_{i = 1,\cdots,n} \|y_i\|_i \\
+        &\Leftrightarrow\ & \|\mathbf{x} + \mathbf{y}\|_{\infty} &\leq \|\mathbf{x}\|_{\infty} + \|\mathbf{y}\|_{\infty}.\\[-1cm]
+    \end{alignat*}
+\end{itemize}
+Vậy từ các tính chất trên ta suy ra $\|\mathbf{.}\|_{\infty}$ là một chuẩn trên $X$.
+\end{proof}
+
 \begin{exercise}{14}
     Xét không gian metric $(X,d)$, với $X=\R$ và $d(x,y)=\abs{x-y}$, $\forall x,y \in \R$, và $Y = (0,2]$. Khảo sát tính đóng / mở của $A=(0,1]$ trong không gian metric $(X,d)$ và trong không gian con $(Y,d_Y)$ của $(X,d)$. Khảo sát sự hội tụ của dãy $\left(\frac{1}{n}\right)_{n\in\N}$ trong $X$ và trong $Y$.
 \end{exercise}
