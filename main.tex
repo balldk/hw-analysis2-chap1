@@ -527,7 +527,12 @@ Cho $z = (x,y)$ là một điểm dính bất kì của $A$, ta chứng minh $z 
 $$
     \lim_{n \to \infty} d(z_n,z) = 0.
 $$
-$\cdots$\\
+Áp dụng định lý kẹp ta được\\
+$$
+    \lim_{n \to \infty} x_n = x \text{ và } \lim_{n \to \infty} y_n = y
+$$
+$\Rightarrow \dlim_{n \to \infty} (2x_n^2 + y_n) = 2x^2 + y$\nl
+Mà $(2x_n^2 + y_n) \leq 1$ nên $2x^2 + y \leq 1$, hay $z\in A$\\
 Vậy suy ra $D$ là tập đóng.\\[3mm]
 Kế tiếp ta chứng minh $D$ không bị chặn. Cho quả cầu mở $B(a,r)$ với $a = (a_x, a_y) \in \R^2, r > 0$ bất kì. Xét điểm $b = (0, \min\{0, a_y\}-r)$, ta có $b \in D$ do $\min\{0, a_y\} - r \leq 1$, nhưng $b \notin B(a,r)$ do $|\min\{0, a_y\} - r| \geq r$. Suy ra $D \not\subset B(a,r)$ hay $D$ không bị chặn.\\
 Vậy $D$ là tập đóng nhưng không là tập compact.
